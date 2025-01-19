@@ -62,11 +62,11 @@ export const POST: APIRoute = async ({ locals, request }) => {
 
   const bookBody = await request.json();
 
-  await DB.prepare(
+  const { success } = await DB.prepare(
     "INSERT INTO books (ulid, name, currency, status) VALUES (?, ?, ?, 1)",
   )
     .bind(bookBody.ulid, bookBody.name, bookBody.currency)
     .run();
 
-  return Response.json({ success: true });
+  return Response.json({ success: success });
 };
