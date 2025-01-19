@@ -51,7 +51,7 @@ export const POST: APIRoute = async ({ locals, request }) => {
   }
 
   const admin = await DB.prepare(
-    "SELECT * FROM users WHERE userUlid = ? AND role = 0",
+    "SELECT * FROM users WHERE ulid = ? AND role = 0",
   )
     .bind(userUlid)
     .first();
@@ -62,7 +62,9 @@ export const POST: APIRoute = async ({ locals, request }) => {
 
   const bookBody = await request.json();
 
-  await DB.prepare("INSERT INTO books (ulid, name, currency) VALUES (?, ?, ?)")
+  await DB.prepare(
+    "INSERT INTO books (ulid, name, currency, status) VALUES (?, ?, ?, 1)",
+  )
     .bind(bookBody.ulid, bookBody.name, bookBody.currency)
     .run();
 
