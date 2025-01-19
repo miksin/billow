@@ -1,0 +1,15 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "billow-db"
+main = "db/src/index.ts"
+compatibility_date = "2025-01-09"
+
+# Workers Logs
+# Docs: https://developers.cloudflare.com/workers/observability/logs/workers-logs/
+# Configuration: https://developers.cloudflare.com/workers/observability/logs/workers-logs/#enable-workers-logs
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "project-billow-d1"
+database_id = "44001bed-a4ed-40df-9ab2-4b1db9acd03d"

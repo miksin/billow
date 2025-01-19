@@ -1,0 +1,62 @@
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+  ulid VARCHAR(26) NOT NULL,
+  name VARCHAR(32) NOT NULL,
+  role TINYINT NOT NULL,
+  PRIMARY KEY (ulid),
+  UNIQUE (name)
+);
+
+DROP TABLE IF EXISTS access_tokens;
+CREATE TABLE access_tokens (
+  userUlid    VARCHAR(26) NOT NULL,
+  token       VARCHAR(128) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  expiredAt   DATETIME NOT NULL,
+  FOREIGN KEY (userUlid) REFERENCES users(ulid) ON UPDATE CASCADE ON DELETE CASCADE,
+  PRIMARY KEY (token)
+);
+
+DROP TABLE IF EXISTS books;
+CREATE TABLE books (
+  ulid     VARCHAR(26) NOT NULL,
+  name     VARCHAR(32) NOT NULL,
+  currency VARCHAR(10) NOT NULL,
+  status INT NOT NULL,
+  PRIMARY KEY (ulid)
+);
+
+DROP TABLE IF EXISTS user_book_rels;
+CREATE TABLE user_book_rels (
+  userUlid  VARCHAR(26) NOT NULL,
+  bookUlid  VARCHAR(26) NOT NULL,
+  sum       INT NOT NULL,
+  FOREIGN KEY (userUlid) REFERENCES users(ulid) ON UPDATE CASCADE ON DELETE RESTRICT,
+  FOREIGN KEY (bookUlid) REFERENCES books(ulid) ON UPDATE CASCADE ON DELETE CASCADE,
+  PRIMARY KEY (userUlid, bookUlid)
+);
+
+DROP TABLE IF EXISTS expenses;
+CREATE TABLE expenses (
+  ulid        VARCHAR(26) NOT NULL,
+  bookUlid    VARCHAR(26) NOT NULL,
+  cost        INT NOT NULL,
+  date        DATE NOT NULL,
+  category    VARCHAR(64) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  readonly    BOOLEAN NOT NULL,
+  createdAt   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatedAt   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (bookUlid) REFERENCES books(ulid) ON UPDATE CASCADE ON DELETE RESTRICT,
+  PRIMARY KEY (ulid)
+);
+
+DROP TABLE IF EXISTS user_expense_rels;
+CREATE TABLE user_expense_rels (
+  userUlid    VARCHAR(26) NOT NULL,
+  expenseUlid VARCHAR(26) NOT NULL,
+  amount      INT NOT NULL,
+  FOREIGN KEY (userUlid) REFERENCES users(ulid) ON UPDATE CASCADE ON DELETE RESTRICT,
+  FOREIGN KEY (expenseUlid) REFERENCES expenses(ulid) ON UPDATE CASCADE ON DELETE CASCADE,
+  PRIMARY KEY (userUlid, expenseUlid)
+);
