@@ -9,5 +9,5 @@ interface Env {
   DB: D1Database;
 }
 declare namespace App {
-  interface Locals extends Runtime { }
+  interface Locals extends Runtime {}
 }
