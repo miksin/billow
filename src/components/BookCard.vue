@@ -1,5 +1,10 @@
 <script lang="ts" setup>
 import SVGIcon from "./SVGIcon.vue";
+
+const { name, sum } = defineProps<{
+  name: string;
+  sum: number;
+}>();
 </script>
 
 <template>
@@ -8,8 +13,8 @@ import SVGIcon from "./SVGIcon.vue";
       <SVGIcon name="home" class="w-12 fill-base-100" />
     </figure>
     <div class="card-body">
-      <h2 class="prose-xl">Book Name</h2>
-      <h6 class="prose">you owe ¥12345 + $155</h6>
+      <h2 class="prose-xl">{{ name }}</h2>
+      <h6 class="prose">you owe ¥{{ sum }}</h6>
       <div class="flex flex-col">
         <p class="prose-sm">you owe Alice ¥12345</p>
         <p class="prose-sm">you owe Bob $155</p>
