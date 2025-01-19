@@ -23,6 +23,7 @@
         "astro-build.astro-vscode",
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
+        "bradlc.vscode-tailwindcss",
         "Vue.volar",
         "GitHub.copilot",
         "GitHub.copilot-chat"
