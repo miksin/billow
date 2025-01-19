@@ -1,4 +1,10 @@
+DROP TABLE IF EXISTS user_expense_rels;
+DROP TABLE IF EXISTS expenses;
+DROP TABLE IF EXISTS user_book_rels;
+DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS access_tokens;
 DROP TABLE IF EXISTS users;
+
 CREATE TABLE users (
   ulid VARCHAR(26) NOT NULL,
   name VARCHAR(32) NOT NULL,
@@ -7,7 +13,6 @@ CREATE TABLE users (
   UNIQUE (name)
 );
 
-DROP TABLE IF EXISTS access_tokens;
 CREATE TABLE access_tokens (
   userUlid    VARCHAR(26) NOT NULL,
   token       VARCHAR(128) NOT NULL,
@@ -17,7 +22,6 @@ CREATE TABLE access_tokens (
   PRIMARY KEY (token)
 );
 
-DROP TABLE IF EXISTS books;
 CREATE TABLE books (
   ulid     VARCHAR(26) NOT NULL,
   name     VARCHAR(32) NOT NULL,
@@ -26,7 +30,6 @@ CREATE TABLE books (
   PRIMARY KEY (ulid)
 );
 
-DROP TABLE IF EXISTS user_book_rels;
 CREATE TABLE user_book_rels (
   userUlid  VARCHAR(26) NOT NULL,
   bookUlid  VARCHAR(26) NOT NULL,
@@ -36,7 +39,6 @@ CREATE TABLE user_book_rels (
   PRIMARY KEY (userUlid, bookUlid)
 );
 
-DROP TABLE IF EXISTS expenses;
 CREATE TABLE expenses (
   ulid        VARCHAR(26) NOT NULL,
   bookUlid    VARCHAR(26) NOT NULL,
@@ -51,7 +53,6 @@ CREATE TABLE expenses (
   PRIMARY KEY (ulid)
 );
 
-DROP TABLE IF EXISTS user_expense_rels;
 CREATE TABLE user_expense_rels (
   userUlid    VARCHAR(26) NOT NULL,
   expenseUlid VARCHAR(26) NOT NULL,
