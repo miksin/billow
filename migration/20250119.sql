@@ -1,9 +1,9 @@
 
 INSERT INTO users (ulid, name, role) VALUES
 ('alice', 'Alice', 1),
-('bob', 'Bob', 2),
-('charlie', 'Charlie', 3),
-('dolly', 'Dolly', 4);
+('bob', 'Bob', 0),
+('charlie', 'Charlie', 0),
+('dolly', 'Dolly', 0);
 
 INSERT INTO access_tokens (userUlid, token, description, expiredAt) VALUES
 ('alice', 'token1', 'Alice token', '2025-12-31 23:59:59'),
@@ -13,7 +13,7 @@ INSERT INTO access_tokens (userUlid, token, description, expiredAt) VALUES
 
 INSERT INTO books (ulid, name, currency, status) VALUES
 ('book1', 'book1', 'JPY', 1),
-('book2', 'book2', 'EUR', 2);
+('book2', 'book2', 'EUR', 1);
 
 INSERT INTO user_book_rels (userUlid, bookUlid, sum) VALUES
 ('alice', 'book1', 1400),
