@@ -12,9 +12,13 @@
     "@astrojs/cloudflare": "^12.1.0",
     "@astrojs/tailwind": "^5.1.4",
     "@astrojs/vue": "^5.0.4",
+    "@nanostores/persistent": "^0.10.2",
+    "@nanostores/query": "^0.3.4",
+    "@nanostores/vue": "^0.11.0",
     "@tailwindcss/typography": "^0.5.16",
     "astro": "^5.1.5",
     "daisyui": "^4.12.23",
+    "nanostores": "^0.11.3",
     "tailwindcss": "^3.4.17",
     "vue": "^3.5.13"
   },

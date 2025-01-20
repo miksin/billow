@@ -1,31 +1,15 @@
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
 import BookCard from "./BookCard.vue";
-import type { UserBookRel } from "../lib/models";
+import { useGetBooksQuery } from "../lib/store/book";
 
-const userBookRels = ref<UserBookRel[]>([]);
-
-const getBooks = async () => {
-  try {
-    const res = await fetch("/api/books", {
-      headers: { Authorization: "Bearer token1" },
-    });
-    const data = await res.json();
-    userBookRels.value = data;
-  } catch (err) {
-    console.error(err);
-  }
-};
-
-onMounted(() => {
-  getBooks();
-});
+const query = useGetBooksQuery();
 </script>
 
 <template>
-  <div class="flex flex-col gap-4">
+  <div v-if="query.isLoading">Loading...</div>
+  <div v-if="query.data" class="flex flex-col gap-4">
     <BookCard
-      v-for="{ bookUlid, sum } in userBookRels"
+      v-for="{ bookUlid, sum } in query.data"
       :key="bookUlid"
       :name="bookUlid"
       :sum="sum"
