@@ -1,12 +1,12 @@
-<script setup lang="ts" generic="T extends string">
+<script setup lang="ts">
 import { defineAsyncComponent } from "vue";
 
 const props = defineProps<{
-  name: T;
+  name: IconName;
 }>();
 
 const iconComponent = defineAsyncComponent(
-  () => import(`@assets/icons/${props.name}.svg?component`),
+  () => import(`../assets/icons/${props.name}.svg?component`),
 );
 </script>
 

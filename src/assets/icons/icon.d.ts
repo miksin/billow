@@ -1,0 +1,15 @@
+declare type IconName =
+  | "bolt"
+  | "check-circle"
+  | "close"
+  | "gas-meter"
+  | "home"
+  | "receipt_long"
+  | "restaurant"
+  | "shopping-bag"
+  | "shopping-cart"
+  | "stadia-controller"
+  | "train"
+  | "travel"
+  | "water-drop"
+  | "wifi";
