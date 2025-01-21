@@ -5,6 +5,7 @@ import vue from "@astrojs/vue";
 import cloudflare from "@astrojs/cloudflare";
 
 import tailwind from "@astrojs/tailwind";
+import svgLoader from "vite-svg-loader";
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,5 +18,8 @@ export default defineConfig({
   }),
   experimental: {
     svg: true,
+  },
+  vite: {
+    plugins: [svgLoader()],
   },
 });

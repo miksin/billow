@@ -1,7 +1,9 @@
 ---
-import BookCard from "../components/BookCard.astro";
+export const prerender = false;
+
 import Layout from "../layouts/Layout.astro";
-import ReceiptLongIcon from "../assets/icons/receipt_long.svg";
+import BookList from "../components/BookList.vue";
+import CreateBookDialog from "../components/CreateBookDialog.vue";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -10,19 +12,7 @@ import ReceiptLongIcon from "../assets/icons/receipt_long.svg";
 <Layout>
   <main class="flex flex-col gap-4">
     <h1 class="prose-2xl">Books</h1>
-    <a href="/books/create" class="btn btn-primary">
-      <ReceiptLongIcon class="fill-neutral" /> Create a Book
-    </a>
-    <div class="flex flex-col gap-4">
-      <a href="/books/1">
-        <BookCard />
-      </a>
-      <a href="/books/2">
-        <BookCard />
-      </a>
-      <a href="/books/3">
-        <BookCard />
-      </a>
-    </div>
+    <CreateBookDialog client:only="vue" />
+    <BookList client:only="vue" />
   </main>
 </Layout>
