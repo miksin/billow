@@ -7,6 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "generate:icon-types": "./scripts/generate_icon_types.sh && prettier --write ./src/assets/icons/icon.d.ts",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
