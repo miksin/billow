@@ -1,4 +1,4 @@
+import { StoreKey } from "@lib/store";
 import { persistentAtom } from "@nanostores/persistent";
-import { StoreKey } from ".";
 
 export const $accessToken = persistentAtom<string>(StoreKey.AccessToken, "");

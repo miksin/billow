@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { $accessToken } from "../../lib/store/auth";
-import AuthPage from "../AuthPage.vue";
-import SVGIcon from "../SVGIcon.vue";
+import { $accessToken } from "@lib/store/auth";
+import AuthPage from "@components/AuthPage.vue";
+import SVGIcon from "@components/SVGIcon.vue";
 
 const logout = () => {
   $accessToken.set("");

@@ -1,4 +1,4 @@
-import { $accessToken } from "./store/auth";
+import { $accessToken } from "@lib/store/auth";
 
 export type FetcherOptions = {
   method: string;

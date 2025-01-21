@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import AuthPage from "./AuthPage.vue";
-import BookList from "./BookList.vue";
-import CreateBookDialog from "./CreateBookDialog.vue";
+import AuthPage from "@components/AuthPage.vue";
+import BookList from "@components/BookList.vue";
+import CreateBookDialog from "@components/CreateBookDialog.vue";
 </script>
 
 <template>

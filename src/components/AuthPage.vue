@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { $accessToken } from "../lib/store/auth";
+import { $accessToken } from "@lib/store/auth";
 import { onMounted } from "vue";
 onMounted(() => {
   if ($accessToken.get() === "") {

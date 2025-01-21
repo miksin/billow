@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import type { UserBookRel } from "../lib/models";
-import { useMountedQuery } from "../lib/store";
-import BookCard from "./BookCard.vue";
+import type { UserBookRel } from "@lib/models";
+import { useMountedQuery } from "@lib/store";
+import BookCard from "@components/BookCard.vue";
 
 const { data, isLoading } = useMountedQuery<UserBookRel[]>("/api/books");
 </script>

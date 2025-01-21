@@ -1,8 +1,8 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 
-import vue from "@astrojs/vue";
 import cloudflare from "@astrojs/cloudflare";
+import vue from "@astrojs/vue";
 
 import tailwind from "@astrojs/tailwind";
 import svgLoader from "vite-svg-loader";
