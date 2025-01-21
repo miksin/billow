@@ -1,15 +1,16 @@
 <script lang="ts" setup>
+import type { UserBookRel } from "../lib/models";
+import { useMountedQuery } from "../lib/store";
 import BookCard from "./BookCard.vue";
-import { useGetBooksQuery } from "../lib/store/book";
 
-const query = useGetBooksQuery();
+const { data, isLoading } = useMountedQuery<UserBookRel[]>("/api/books");
 </script>
 
 <template>
-  <div v-if="query.isLoading">Loading...</div>
-  <div v-if="query.data" class="flex flex-col gap-4">
+  <div v-if="isLoading">Loading...</div>
+  <div v-if="data" class="flex flex-col gap-4">
     <BookCard
-      v-for="{ bookUlid, sum } in query.data"
+      v-for="{ bookUlid, sum } in data"
       :key="bookUlid"
       :name="bookUlid"
       :sum="sum"
