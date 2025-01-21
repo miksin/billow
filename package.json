@@ -13,7 +13,6 @@
     "@astrojs/tailwind": "^5.1.4",
     "@astrojs/vue": "^5.0.4",
     "@nanostores/persistent": "^0.10.2",
-    "@nanostores/query": "^0.3.4",
     "@nanostores/vue": "^0.11.0",
     "@tailwindcss/typography": "^0.5.16",
     "astro": "^5.1.5",
