@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import SVGIcon from "./SVGIcon.vue";
+import SVGIcon from "@components/SVGIcon.vue";
 
 const dialogOpen = ref(false);
 function openDialog() {

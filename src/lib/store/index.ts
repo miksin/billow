@@ -2,7 +2,7 @@ import { persistentAtom } from "@nanostores/persistent";
 import { useVModel } from "@nanostores/vue";
 import type { WritableAtom } from "nanostores";
 import { onMounted, ref } from "vue";
-import { fetcher, type FetcherOptions } from "../fetcher";
+import { fetcher, type FetcherOptions } from "@lib/fetcher";
 
 export const StoreKey = {
   AccessToken: "accessToken",

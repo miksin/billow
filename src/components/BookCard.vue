@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import SVGIcon from "./SVGIcon.vue";
+import SVGIcon from "@components/SVGIcon.vue";
 
 const { name, sum } = defineProps<{
   name: string;
