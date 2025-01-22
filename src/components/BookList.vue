@@ -7,7 +7,10 @@ const { data, isLoading } = useMountedQuery<UserBookRel[]>("/api/books");
 </script>
 
 <template>
-  <div v-if="isLoading">Loading...</div>
+  <span
+    class="mt-8 mx-auto loading loading-spinner loading-lg text-primary"
+    v-if="isLoading"
+  ></span>
   <div v-if="data" class="flex flex-col gap-4">
     <BookCard
       v-for="{ bookUlid, sum } in data"

@@ -52,3 +52,26 @@ export const useMountedQuery = <T>(uri: string, options?: FetcherOptions) => {
   });
   return { data, isLoading, isError };
 };
+
+export const useMutation = <T>() => {
+  const result = ref<T | null>(null);
+  const isLoading = ref(false);
+  const isError = ref(false);
+
+  const trigger = async (uri: string, options?: FetcherOptions) => {
+    isLoading.value = true;
+    isError.value = false;
+    try {
+      const r = await fetcher<T>(uri, options);
+      isLoading.value = false;
+      result.value = r;
+      return r;
+    } catch (err) {
+      isLoading.value = false;
+      isError.value = true;
+      throw err;
+    }
+  };
+
+  return { result, isLoading, isError, trigger };
+};
